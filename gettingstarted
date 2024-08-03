@@ -1,0 +1,46 @@
+sudo apt update && sudo apt upgrade && sudo apt dist-upgrade -y
+
+## Reboot if required
+
+# Remove existing pimpmykali folder
+rm -rf pimpmykali/
+
+# Clone pimpmykali repository & enter the folder
+git clone https://github.com/Dewalt-arch/pimpmykali
+cd pimpmykali
+
+# Execute the script - For a new Kali VM, run menu option 'N'
+# (The script must be run with root privileges)
+sudo ./pimpmykali.sh
+
+# Install Tor for anonymity and privacy
+sudo apt install tor
+
+# Install Atom
+sudo apt install atom
+
+# Configure / Enable Firewall
+sudo apt install ufw
+sudo ufw enable
+
+# Install VPN Software
+sudo apt install openvpn
+
+# Install Wireshark
+sudo apt install wireshark
+
+# Install OpenVAS
+sudo apt install openvas
+sudo gvm-setup
+sudo gvm-check-setup
+# Forgot password
+gvmd --user=admin --new-password=passwd;
+# Starting OpenVAS
+sudo gvm-start
+# Stopping OpenVAS
+sudo gvm-stop
+# Create new OpenVAS user
+sudo runuser -u _gvm -- gvmd --create-user=admin2 --new-password=12345
+# Change user password
+sudo runuser -u _gvm -- gvmd --user=admin --new-password=new_password
+
